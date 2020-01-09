@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+      <% docs.forEach(function(customer){ %>
+        <li>
+          <p><%= customer.nome %> 
+            <a href="/edit/<%= customer._id %>">
+            Editar
+          </a> 
+          <a onclick="return confirm('Tem certeza que deseja excluir <%= customer.nome %>?');"
+            href="/delete/<%= customer._id %>" 
+              >
+             Deletar
+          </a>
+          </p>
+          
+          
+        </li>
+      <% }) %>
+    </ul>
+    <hr />
+    <a href="/new">Cadastrar novo cliente</a>
+  </body>
+</html>
